@@ -1,0 +1,49 @@
+<!-- Frank Madu -->
+<!-- Module 4 Project -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input and Output Example</title>
+  <script> // Main Function
+    function isPrime() {
+        var n = document.getElementById("nbr").value;
+        if (n <= 1) {
+            document.getElementById("outputAnswer").innerHTML = "This number is not prime.";
+            document.getElementById("outputAnswer").style.color = "blue";
+            return;
+        } if (n <= 3) {
+            document.getElementById("outputAnswer").innerHTML = "This number is prime.";
+            document.getElementById("outputAnswer").style.color = "red";
+            return;
+        } if (n % 2 == 0 || n % 3 == 0) {
+            document.getElementById("outputAnswer").innerHTML = "This number is not prime.";
+            document.getElementById("outputAnswer").style.color = "blue";
+            return;
+        }
+
+        for (var i = 5; i * i <= n; i += 6) {
+            if (n % i == 0 || n % (i + 2) == 0) {
+                document.getElementById("outputAnswer").innerHTML = "This number is not prime.";
+                document.getElementById("outputAnswer").style.color = "blue";
+                return;
+            }
+        }
+        document.getElementById("outputAnswer").innerHTML = "This number is prime.";
+        document.getElementById("outputAnswer").style.color = "red";
+        return;
+    }
+</script>
+</head>
+<body>
+    <h1 style="color:red">Prime Checker</h1>
+        <label>Enter a number from 2 to 9999:</label>
+        <input type="number" id="nbr"> <br>
+        <button onclick="isPrime()">Submit</button>
+    <p id="outputAnswer">I'm waiting...</p>
+</body>
+</html>
+
+
+
+
